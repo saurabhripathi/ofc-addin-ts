@@ -16,7 +16,7 @@ export class ExcelService implements ExcelServiceInterface {
     // }
   }
 
-  onCellChnge() {
+  onCellChnge(): void {
     let window: Window;
     (<HTMLInputElement>window.document.getElementById("inp")).value = "";
   }
