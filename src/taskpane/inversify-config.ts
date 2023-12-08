@@ -1,11 +1,15 @@
 import { Container } from "inversify";
-import { TaskHandler } from "../taskpane/ExcelTaskHandler-interface";
-import { ExcelTaskHandler } from "../taskpane/excel";
-import { Task, ExcelType } from "../taskpane/types";
-import { ExcelService } from "../taskpane/excel-service";
-import { ExcelServiceInterface } from "../taskpane/excel-service-impl";
+import { TaskHandler } from "./task-handler";
+import { TaskHandlerImpl } from "./task-handler-impl";
+import { Symbols } from "../taskpane/types";
+import { ExcelServiceImpl } from "./excel-service-impl";
+import { ExcelService } from "./excel-service";
+import { LoggerService } from "src/share/logger-service";
+import { LoggerServiceImpl } from "src/share/logger-service-impl";
+
 const myContainer = new Container();
-myContainer.bind<TaskHandler>(Task).to(ExcelTaskHandler);
-myContainer.bind<ExcelServiceInterface>(ExcelType).to(ExcelService);
+myContainer.bind<TaskHandler>(Symbols.Task).to(TaskHandlerImpl);
+myContainer.bind<ExcelService>(Symbols.ExcelType).to(ExcelServiceImpl);
+myContainer.bind<LoggerService>(Symbols.Logger).to(LoggerServiceImpl);
 
 export { myContainer };
