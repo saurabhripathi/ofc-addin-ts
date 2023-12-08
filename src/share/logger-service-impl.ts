@@ -10,6 +10,6 @@ export class LoggerServiceImpl implements LoggerService {
     console.warn(warn);
   }
   error(error: string) {
-    console.log(error);
+    console.error(error);
   }
 }
