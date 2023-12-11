@@ -1,2 +1,5 @@
-export const Task = "Task";
-export const ExcelType = "Excel";
+export let Symbols = {
+  Task: Symbol.for("Task"),
+  ExcelType: Symbol.for("Excel"),
+  Logger: Symbol.for("Logger"),
+};
